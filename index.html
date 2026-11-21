@@ -1,0 +1,1965 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Victória, com carinho ♡</title>
+
+<!-- FONTES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --lilas: #9272bc;
+  --lilas-claro: #c6a4e5;
+  --rosa: #df94bb;
+  --rosa-claro: #f7d9e9;
+  --azul: #a8bde7;
+  --texto: #77658d;
+  --branco: #fffaff;
+  --sombra: 0 15px 45px rgba(124, 91, 159, .12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 25px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--texto);
+  background:
+    radial-gradient(ellipse at 5% 10%, #f7ddf8 0%, transparent 35%),
+    radial-gradient(ellipse at 95% 25%, #e3e7ff 0%, transparent 35%),
+    radial-gradient(ellipse at 50% 85%, #fce4ef 0%, transparent 40%),
+    #fffaff;
+  overflow-x: hidden;
+}
+
+button, input, textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+::selection {
+  background: #eac5e8;
+  color: #654b83;
+}
+
+/* DECORAÇÕES FLUTUANTES */
+
+#decoracoes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.floaty {
+  position: absolute;
+  bottom: -60px;
+  opacity: 0;
+  animation: subir linear forwards;
+  filter: drop-shadow(0 3px 5px #b18acb30);
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0) rotate(-15deg);
+    opacity: 0;
+  }
+  12% { opacity: .8; }
+  85% { opacity: .7; }
+  100% {
+    transform: translateY(-115vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+.flor {
+  position: absolute;
+  font-size: 26px;
+  opacity: .65;
+  animation: balancar 4s ease-in-out infinite;
+}
+
+@keyframes balancar {
+  0%, 100% { transform: rotate(-12deg) translateY(0); }
+  50% { transform: rotate(12deg) translateY(-9px); }
+}
+
+.borboleta {
+  position: absolute;
+  font-size: 29px;
+  animation: voar 7s ease-in-out infinite;
+}
+
+@keyframes voar {
+  0%,100% { transform: translate(0,0) rotate(-8deg); }
+  50% { transform: translate(25px,-22px) rotate(10deg); }
+}
+
+.estrela {
+  position: absolute;
+  color: #e9c77e;
+  animation: brilhar 2.5s infinite alternate;
+}
+
+@keyframes brilhar {
+  from { opacity: .25; transform: scale(.8); }
+  to { opacity: .9; transform: scale(1.2); }
+}
+
+/* ELEMENTOS GERAIS */
+
+section {
+  position: relative;
+  padding: 90px 7%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.conteudo {
+  width: 100%;
+  max-width: 1080px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.etiqueta {
+  display: inline-block;
+  border: 1px solid #e9d8f4;
+  background: #ffffffbd;
+  border-radius: 40px;
+  padding: 10px 23px;
+  color: #a17fc1;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+.titulo {
+  font-size: clamp(36px, 5vw, 58px);
+  color: #8061a4;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.subtitulo {
+  font-size: 15px;
+  line-height: 1.9;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 38px;
+  color: #9785a8;
+}
+
+.assinatura {
+  font-family: 'Allura', cursive;
+  color: var(--rosa);
+  font-size: clamp(42px, 6vw, 70px);
+}
+
+.botao {
+  display: inline-block;
+  padding: 15px 29px;
+  border-radius: 50px;
+  background: linear-gradient(110deg, #a987d5, #d997c1);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 9px 24px #bc91d43d;
+  transition: .3s;
+}
+
+.botao:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 13px 28px #bc91d466;
+}
+
+.botao-secundario {
+  background: #fff;
+  color: #9978b9;
+  border: 1px solid #eadcf4;
+  box-shadow: none;
+}
+
+.centralizado { text-align: center; }
+
+/* MENU */
+
+.menu {
+  position: fixed;
+  top: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 5px;
+  padding: 8px;
+  border-radius: 50px;
+  background: #ffffffd9;
+  border: 1px solid #f0e4f5;
+  box-shadow: 0 5px 25px #9479b31a;
+  backdrop-filter: blur(12px);
+}
+
+.menu a {
+  text-decoration: none;
+  color: #9278a9;
+  padding: 9px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.menu a:hover {
+  background: #f4e8f7;
+  color: #805da5;
+}
+
+/* INÍCIO */
+
+#inicio {
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 120px;
+}
+
+#inicio h1 {
+  font-size: clamp(50px, 8vw, 100px);
+  color: #795b9f;
+  line-height: 1.08;
+}
+
+#inicio .assinatura {
+  font-size: clamp(65px, 9vw, 105px);
+  margin-top: -4px;
+  display: block;
+}
+
+.intro {
+  max-width: 570px;
+  margin: 32px auto;
+  line-height: 2.1;
+  color: #9785a8;
+  font-size: 16px;
+}
+
+.decoracao-grande {
+  position: absolute;
+  font-size: 48px;
+  animation: balancar 5s infinite;
+}
+
+.d1 { top: 24%; left: 9%; }
+.d2 { top: 27%; right: 10%; }
+.d3 { bottom: 18%; left: 16%; }
+.d4 { bottom: 20%; right: 13%; }
+
+/* MEMÓRIAS */
+
+#memorias {
+  background: linear-gradient(180deg, #fffaff80, #f8effb90);
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.polaroid {
+  background: white;
+  padding: 10px 10px 18px;
+  border-radius: 5px;
+  box-shadow: var(--sombra);
+  transform: rotate(var(--rotacao));
+  transition: .35s;
+  cursor: pointer;
+}
+
+.polaroid:hover {
+  transform: translateY(-12px) rotate(0deg) scale(1.04);
+  z-index: 3;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 215px;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+}
+
+.polaroid p {
+  font-family: 'Allura', cursive;
+  font-size: 25px;
+  text-align: center;
+  color: #a27bb6;
+  margin-top: 8px;
+}
+
+.foto-ampliada {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #392b49e8;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.foto-ampliada.ativa { display: flex; }
+
+.foto-ampliada img {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 12px solid white;
+  border-bottom: 35px solid white;
+  border-radius: 4px;
+}
+
+.fechar-foto {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  color: white;
+  background: transparent;
+  font-size: 35px;
+}
+
+/* CONQUISTA TCC */
+
+#conquista {
+  background: linear-gradient(140deg, #f6eafa, #fff8fc, #eaf0ff);
+}
+
+.tcc-card {
+  max-width: 850px;
+  margin: 25px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  background: #ffffffc9;
+  padding: 22px;
+  border: 1px solid #f0e2f5;
+  border-radius: 25px;
+  box-shadow: var(--sombra);
+}
+
+.tcc-card img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.tcc-texto h3 {
+  font-size: 30px;
+  color: #8566a8;
+  margin-bottom: 17px;
+}
+
+.tcc-texto p {
+  line-height: 2;
+  color: #93829f;
+  font-size: 14px;
+}
+
+.tcc-selo {
+  display: inline-block;
+  margin-top: 20px;
+  color: #ae80ad;
+  background: #faedf6;
+  border-radius: 30px;
+  padding: 10px 16px;
+  font-size: 12px;
+}
+
+/* NUTRIÇÃO */
+
+#nutricao {
+  background: linear-gradient(180deg, #fffaff, #f1efff);
+  min-height: 100vh;
+}
+
+.nutri-destaque {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin: 35px 0 50px;
+}
+
+.nutri-card {
+  background: #ffffffc9;
+  border: 1px solid #eee2f6;
+  border-radius: 20px;
+  padding: 24px 17px;
+  text-align: center;
+  box-shadow: 0 8px 24px #b69ac71a;
+}
+
+.nutri-card .simbolo {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.nutri-card h3 {
+  color: #8866a8;
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.nutri-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #9d8ca9;
+}
+
+/* JOGO DA MEMÓRIA */
+
+.jogo-area {
+  background: #ffffffc9;
+  border: 1px solid #e9dff1;
+  border-radius: 28px;
+  padding: 28px;
+  max-width: 680px;
+  width: 100%;
+  margin: auto;
+  box-shadow: var(--sombra);
+}
+
+.jogo-topo {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: #8c70a9;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.grade-frutas {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fruta {
+  aspect-ratio: 1;
+  background: linear-gradient(145deg, #f3e9fb, #fcecf5);
+  border: 1px solid #e9d9f1;
+  border-radius: 15px;
+  font-size: clamp(23px, 4vw, 34px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .25s;
+  box-shadow: 0 4px 8px #9975b21a;
+  color: transparent;
+}
+
+.fruta::before {
+  content: "✿";
+  color: #c19ad1;
+}
+
+.fruta.revelada,
+.fruta.acertada {
+  color: inherit;
+  background: white;
+  transform: rotateY(180deg);
+}
+
+.fruta.revelada::before,
+.fruta.acertada::before {
+  display: none;
+}
+
+.fruta.acertada {
+  background: #f0e9f8;
+  border-color: #c7a5df;
+  cursor: default;
+}
+
+.jogo-rodape {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.mensagem-jogo {
+  text-align: center;
+  margin-top: 17px;
+  color: #a47cb7;
+  font-size: 14px;
+  min-height: 22px;
+}
+
+/* QUIZ */
+
+.quiz-area {
+  max-width: 680px;
+  width: 100%;
+  margin: 35px auto 0;
+  padding: 30px;
+  background: #ffffffd9;
+  border-radius: 25px;
+  border: 1px solid #eadff2;
+  box-shadow: var(--sombra);
+}
+
+.progresso {
+  height: 7px;
+  border-radius: 10px;
+  background: #f1e7f6;
+  overflow: hidden;
+  margin: 15px 0 25px;
+}
+
+.progresso div {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #ae8bda, #e39ac6);
+  transition: .3s;
+}
+
+.quiz-pergunta {
+  color: #80629e;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.alternativa {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fbf7fd;
+  color: #8d799d;
+  border: 1px solid #eee4f4;
+  border-radius: 13px;
+  padding: 15px 18px;
+  margin: 10px 0;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.alternativa:hover:not(:disabled) {
+  background: #f0e5f8;
+  border-color: #c7a4df;
+}
+
+.alternativa.correta {
+  background: #e8f5e9;
+  border-color: #9fc8a5;
+  color: #527e5a;
+}
+
+.alternativa.errada {
+  background: #fce8ee;
+  border-color: #e6a8ba;
+  color: #a85d76;
+}
+
+.quiz-resultado {
+  text-align: center;
+  padding: 20px 5px;
+  display: none;
+}
+
+.quiz-resultado h3 {
+  font-size: 30px;
+  color: #9876b7;
+  margin: 15px;
+}
+
+/* CARTINHA */
+
+#carta {
+  background: linear-gradient(145deg, #f9eafa, #fffaff, #eaeaff);
+}
+
+.carta-area {
+  text-align: center;
+  max-width: 750px;
+  margin: auto;
+}
+
+.envelope {
+  position: relative;
+  width: min(300px, 80vw);
+  height: 195px;
+  margin: 55px auto 30px;
+  cursor: pointer;
+  perspective: 800px;
+  filter: drop-shadow(0 12px 18px #9474b42a);
+}
+
+.envelope-base {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #d7b4e9, #c49bd9);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.envelope-base::before,
+.envelope-base::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  border-style: solid;
+}
+
+.envelope-base::before {
+  left: 0;
+  border-width: 0 150px 115px 0;
+  border-color: transparent transparent #e8c8eb transparent;
+}
+
+.envelope-base::after {
+  right: 0;
+  border-width: 0 0 115px 150px;
+  border-color: transparent transparent #e0b8e2 transparent;
+}
+
+.envelope-tampa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 115px solid #b78bcf;
+  transform-origin: top;
+  transition: transform .8s ease;
+  z-index: 5;
+}
+
+.selo-carta {
+  position: absolute;
+  z-index: 7;
+  top: 105px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;
+  transition: .4s;
+}
+
+.envelope.aberto .envelope-tampa {
+  transform: rotateX(180deg);
+}
+
+.envelope.aberto .selo-carta {
+  opacity: 0;
+}
+
+.papel {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 10px;
+  height: 165px;
+  background: #fffafc;
+  border-radius: 5px;
+  z-index: 2;
+  transition: .9s;
+}
+
+.envelope.aberto .papel {
+  transform: translateY(-125px);
+}
+
+.carta-texto {
+  display: none;
+  max-width: 720px;
+  margin: 30px auto;
+  padding: 40px clamp(22px, 5vw, 55px);
+  background: #fffdfd;
+  border: 1px solid #f0dced;
+  border-radius: 18px;
+  box-shadow: var(--sombra);
+  text-align: left;
+  line-height: 2;
+  color: #88748f;
+  font-size: 14px;
+  animation: aparecer .9s ease;
+}
+
+.carta-texto.visivel { display: block; }
+
+.carta-texto h3 {
+  text-align: center;
+  color: #936fb2;
+  font-size: 31px;
+  margin-bottom: 25px;
+}
+
+.carta-texto p { margin-bottom: 16px; }
+
+.carta-texto .assinatura { text-align: right; }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.coracao-carta {
+  position: fixed;
+  pointer-events: none;
+  z-index: 120;
+  animation: coracaoSubir 2.5s forwards ease-out;
+}
+
+@keyframes coracaoSubir {
+  from { opacity: 1; transform: translateY(0) scale(.5) rotate(0); }
+  to { opacity: 0; transform: translateY(-230px) scale(1.5) rotate(25deg); }
+}
+
+/* ANIVERSÁRIO E BOLO */
+
+#aniversario {
+  background:
+    radial-gradient(ellipse at 50% 50%, #fce4f2, transparent 70%),
+    linear-gradient(140deg, #f7eaff, #fffaff, #e9edff);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.festa {
+  text-align: center;
+  max-width: 780px;
+  margin: auto;
+}
+
+.bolo-palco {
+  position: relative;
+  width: 360px;
+  height: 375px;
+  max-width: 95%;
+  margin: 30px auto 10px;
+}
+
+.prato {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(#fff, #d9c6e5);
+  box-shadow: 0 12px 22px #9272bc35;
+}
+
+.andares {
+  position: absolute;
+  bottom: 29px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.andares .andar {
+  position: relative;
+  border-radius: 13px 13px 9px 9px;
+  background: linear-gradient(90deg, #c18cbd, #f5c9e3 30%, #fff0f6 55%, #dcadd5);
+  border: 2px solid #f7d9e9;
+  box-shadow: inset 0 -10px 12px #b87ca52a, 0 4px 9px #9d75a02a;
+}
+
+.andar-1 {
+  width: 315px;
+  height: 92px;
+  z-index: 1;
+}
+
+.andar-2 {
+  width: 245px;
+  height: 85px;
+  margin-bottom: -2px;
+  z-index: 2;
+}
+
+.andar-3 {
+  width: 170px;
+  height: 78px;
+  margin-bottom: -2px;
+  z-index: 3;
+}
+
+.cobertura {
+  position: absolute;
+  top: -8px;
+  left: -2px;
+  right: -2px;
+  height: 22px;
+  border-radius: 50% 50% 8px 8px;
+  background: linear-gradient(90deg, #fff1fa, #f5d3ed, #fff8fd);
+  border: 1px solid #fff;
+}
+
+.cobertura::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  top: 8px;
+  width: 18px;
+  height: 30px;
+  border-radius: 0 0 12px 12px;
+  background: #f7d5eb;
+  box-shadow: 52px 1px 0 #f7d5eb, 105px -1px 0 #f7d5eb;
+}
+
+.bolinha {
+  position: absolute;
+  top: 34px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-around;
+  color: #fff9ff;
+  font-size: 17px;
+}
+
+.bolo-flor {
+  position: absolute;
+  font-size: 21px;
+  z-index: 5;
+  top: 37px;
+}
+
+.fl1 { left: 20%; }
+.fl2 { right: 20%; }
+.fl3 { left: 43%; top: 52px; }
+
+.topo-bolo {
+  position: absolute;
+  bottom: 275px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 35px;
+  background: linear-gradient(#f7d6ed, #d99acb);
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.velas {
+  position: absolute;
+  bottom: 295px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 125px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  z-index: 10;
+}
+
+.vela {
+  position: relative;
+  width: 10px;
+  height: 58px;
+  border-radius: 4px 4px 2px 2px;
+  background: repeating-linear-gradient(
+    135deg,
+    #fff 0 6px,
+    #d79aca 6px 11px
+  );
+  box-shadow: 0 0 4px #bd87b9;
+}
+
+.chama {
+  position: absolute;
+  width: 13px;
+  height: 21px;
+  left: 50%;
+  top: -24px;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+  border-radius: 50% 50% 50% 50%;
+  background: radial-gradient(ellipse at 50% 70%, #fff9c7 0 15%, #ffcf66 40%, #ff8e7b 75%, transparent 100%);
+  filter: drop-shadow(0 0 7px #ffbd69);
+  animation: chamaSubir .65s ease-in-out infinite alternate;
+}
+
+.chama::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  left: 4px;
+  top: 6px;
+  border-radius: 50%;
+  background: #fffbe7;
+}
+
+@keyframes chamaSubir {
+  from { transform: translate(-50%, 1px) scale(.9); }
+  to { transform: translate(-50%, -4px) scale(1.08); }
+}
+
+.velas.apagadas .chama {
+  display: none;
+}
+
+.bolo-legenda {
+  margin: 10px auto 22px;
+  font-size: 13px;
+  color: #9d86ad;
+}
+
+.pedidos-area {
+  display: none;
+  max-width: 550px;
+  margin: 25px auto;
+  padding: 28px;
+  border-radius: 22px;
+  background: #ffffffdb;
+  border: 1px solid #efddef;
+  box-shadow: var(--sombra);
+  animation: aparecer .8s;
+}
+
+.pedidos-area.visivel { display: block; }
+
+.pedidos-area textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #e9d8f0;
+  border-radius: 15px;
+  padding: 15px;
+  resize: vertical;
+  outline: none;
+  background: #fffaff;
+  color: #846b99;
+  font-size: 14px;
+  margin: 15px 0;
+}
+
+.pedidos-area textarea:focus {
+  border-color: #bd96d7;
+  box-shadow: 0 0 0 3px #eadcf4;
+}
+
+.bencao {
+  display: none;
+  padding: 35px 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  background: #ffffffd9;
+  border-radius: 25px;
+  border: 1px solid #eeddf5;
+  box-shadow: var(--sombra);
+  animation: aparecer 1s;
+  line-height: 2;
+}
+
+.bencao.visivel { display: block; }
+
+.bencao h3 {
+  color: #9472b5;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+/* CRÉDITOS */
+
+.creditos {
+  padding: 45px 20px 55px;
+  text-align: center;
+  background: #f3e9f7;
+}
+
+.creditos .assinatura {
+  font-size: 53px;
+}
+
+.creditos p {
+  color: #9d88a9;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.creditos .marca {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 9px;
+  margin-top: 18px;
+  color: #b293c1;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 850px) {
+  .galeria { grid-template-columns: repeat(3, 1fr); }
+  .polaroid img { height: 190px; }
+  .menu { gap: 0; width: 95%; justify-content: center; }
+  .menu a { font-size: 9px; padding: 9px 8px; }
+}
+
+@media(max-width: 600px) {
+  section { padding: 85px 6%; }
+  .galeria { grid-template-columns: repeat(2, 1fr); }
+  .polaroid img { height: 180px; }
+  .tcc-card { grid-template-columns: 1fr; }
+  .nutri-destaque { grid-template-columns: 1fr; }
+  .grade-frutas { grid-template-columns: repeat(4, 1fr); }
+  .jogo-area { padding: 17px; }
+  .quiz-area { padding: 20px; }
+  .menu { top: 8px; overflow-x: auto; }
+  .menu a { white-space: nowrap; }
+  .bolo-palco { transform: scale(.85); transform-origin: top center; margin-bottom: -30px; }
+  .d1, .d2 { font-size: 30px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="decoracoes"></div>
+
+<!-- MENU -->
+<nav class="menu">
+  <a href="#inicio">Início</a>
+  <a href="#memorias">Memórias</a>
+  <a href="#conquista">Conquista</a>
+  <a href="#nutricao">Nutrição</a>
+  <a href="#carta">Cartinha</a>
+  <a href="#aniversario">Surpresa final</a>
+</nav>
+
+<!-- INÍCIO -->
+<section id="inicio">
+  <span class="decoracao-grande d1">🦋</span>
+  <span class="decoracao-grande d2">🌷</span>
+  <span class="decoracao-grande d3">✧</span>
+  <span class="decoracao-grande d4">🎀</span>
+
+  <div class="conteudo">
+    <span class="etiqueta">✦ Um presentinho feito com amor ✦</span>
+    <h1>Feliz aniversário,</h1>
+    <span class="assinatura">Victória! ♡</span>
+
+    <p class="intro">
+      Hoje o mundo ganhou mais um motivo para sorrir.
+      E eu preparei um cantinho especial, cheio de carinho,
+      memórias e algumas surpresinhas, só para você.
+    </p>
+
+    <a href="#memorias" class="botao">Abrir minha surpresa ♡</a>
+
+    <p style="margin-top:65px;font-size:11px;letter-spacing:2px;color:#b29ac3">
+      DESÇA PARA DESCOBRIR ↓
+    </p>
+  </div>
+</section>
+
+<!-- MEMÓRIAS -->
+<section id="memorias">
+  <div class="conteudo">
+    <div class="centralizado">
+      <span class="etiqueta">♡ Nossos registros especiais ♡</span>
+      <h2 class="titulo">Um pouquinho de você</h2>
+      <p class="subtitulo">
+        Porque existem momentos que merecem ser guardados
+        com todo carinho do mundo.
+      </p>
+    </div>
+
+    <div class="galeria">
+      <div class="polaroid" style="--rotacao:-3deg" onclick="openPhoto(this)">
+        <img src="fotos/Vick.jpg" alt="Victória">
+        <p>Seu jeitinho ♡</p>
+      </div>
+
+      <div class="polaroid" style="--rotacao:2deg" onclick="openPhoto(this)">
+        <img src="fotos/Vi.jpg" alt="Victória">
+        <p>Uma linda memória</p>
+      </div>
+
+      <div class="polaroid" style="--rotacao:-2deg" onclick="openPhoto(this)">
+        <img src="fotos/Victoria.jpg" alt="Victória">
+        <p>Você sendo você</p>
+      </div>
+
+      <div class="polaroid" style="--rotacao:3deg" onclick="openPhoto(this)">
+        <img src="fotos/Nutrivick.jpg" alt="Victória">
+        <p>Futura nutricionista</p>
+      </div>
+
+      <div class="polaroid" style="--rotacao:-2deg" onclick="openPhoto(this)">
+        <img src="fotos/Vicknutri.jpg" alt="Victória">
+        <p>Minha menina especial</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="foto-ampliada" id="fotoAmpliada" onclick="closePhoto()">
+  <button class="fechar-foto" aria-label="Fechar">×</button>
+  <img id="imagemGrande" src="" alt="Fotografia ampliada">
+</div>
+
+<!-- TCC -->
+<section id="conquista">
+  <div class="conteudo">
+    <div class="centralizado">
+      <span class="etiqueta">✧ Uma conquista inesquecível ✧</span>
+      <h2 class="titulo">Ela conseguiu!</h2>
+      <p class="subtitulo">
+        E essa parte merece um espaço só dela.
+      </p>
+    </div>
+
+    <div class="tcc-card">
+      <img src="fotos/TCC(1).jpg" alt="Victória na apresentação do TCC">
+
+      <div class="tcc-texto">
+        <span style="color:#c391bd;letter-spacing:2px;font-size:10px">
+          UM CAPÍTULO MUITO ESPECIAL
+        </span>
+
+        <h3>Seu esforço floresceu. 🌷</h3>
+
+        <p>
+          Eu sei que chegar até aqui não foi simplesmente
+          cumprir mais uma etapa. Foram dias de dedicação,
+          estudos, preocupações, noites de esforço e tantos
+          momentos em que você precisou acreditar em si mesma.
+        </p>
+
+        <p style="margin-top:14px">
+          E agora você pode olhar para trás e perceber
+          o quanto cresceu. Que orgulho de ver você
+          conquistando aquilo pelo qual tanto se dedicou!
+        </p>
+
+        <span class="tcc-selo">♡ TCC concluído com sucesso ♡</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUTRIÇÃO -->
+<section id="nutricao">
+  <div class="conteudo">
+    <div class="centralizado">
+      <span class="etiqueta">🥑 Um cantinho especial para a nutri</span>
+      <h2 class="titulo">Nutrição também é amor!</h2>
+      <p class="subtitulo">
+        Uma pequena homenagem à futura profissional que
+        está construindo uma história tão bonita.
+      </p>
+    </div>
+
+    <div class="nutri-destaque">
+      <div class="nutri-card">
+        <div class="simbolo">🍓</div>
+        <h3>Conhecimento</h3>
+        <p>Que nunca falte curiosidade para aprender e descobrir coisas novas.</p>
+      </div>
+
+      <div class="nutri-card">
+        <div class="simbolo">🥑</div>
+        <h3>Cuidado</h3>
+        <p>Que sua profissão seja sempre guiada pela empatia e pelo carinho.</p>
+      </div>
+
+      <div class="nutri-card">
+        <div class="simbolo">🍊</div>
+        <h3>Realização</h3>
+        <p>Que você colha frutos lindos de tudo aquilo que está plantando.</p>
+      </div>
+    </div>
+
+    <!-- JOGO DA MEMÓRIA -->
+    <div class="centralizado">
+      <span class="etiqueta">✿ Hora de brincar um pouquinho ✿</span>
+      <h2 class="titulo" style="font-size:35px">Memória frutífera!</h2>
+      <p class="subtitulo">
+        Encontre todos os pares de frutinhas.
+        Será que a futura nutricionista tem boa memória?
+      </p>
+    </div>
+
+    <div class="jogo-area">
+      <div class="jogo-topo">
+        <span>Movimentos: <strong id="movimentos">0</strong></span>
+        <span>Pares: <strong id="pares">0 / 12</strong></span>
+        <span>Tempo: <strong id="tempo">00:00</strong></span>
+      </div>
+
+      <div class="grade-frutas" id="gradeFrutas"></div>
+
+      <div class="mensagem-jogo" id="mensagemJogo">
+        Encontre os 12 pares! ♡
+      </div>
+
+      <div class="jogo-rodape">
+        <button class="botao botao-secundario" onclick="novoJogo()">
+          ↻ Reiniciar jogo
+        </button>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div style="margin-top:65px" class="centralizado">
+      <span class="etiqueta">✧ Desafio da futura nutricionista ✧</span>
+      <h2 class="titulo" style="font-size:36px">Você sabe tudo sobre nutrição?</h2>
+      <p class="subtitulo">
+        Responda às perguntinhas e descubra sua pontuação!
+      </p>
+    </div>
+
+    <div class="quiz-area" id="quizArea">
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#a28ab5">
+        <span id="numeroPergunta">Pergunta 1 de 6</span>
+        <span id="pontuacao">Acertos: 0</span>
+      </div>
+
+      <div class="progresso"><div id="barraProgresso"></div></div>
+
+      <div id="quizConteudo">
+        <h3 class="quiz-pergunta" id="pergunta"></h3>
+        <div id="alternativas"></div>
+        <p id="feedbackQuiz" style="font-size:13px;margin:15px 0;min-height:20px"></p>
+        <div class="centralizado">
+          <button class="botao" id="proximo" onclick="proximaPergunta()" disabled>
+            Próxima pergunta →
+          </button>
+        </div>
+      </div>
+
+      <div class="quiz-resultado" id="resultadoQuiz">
+        <div style="font-size:48px">🏆</div>
+        <h3>Parabéns, nutri!</h3>
+        <p id="textoResultado" style="line-height:2"></p>
+        <button class="botao" style="margin-top:20px" onclick="reiniciarQuiz()">
+          Jogar novamente ↻
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CARTINHA -->
+<section id="carta">
+  <div class="conteudo carta-area">
+    <span class="etiqueta">♡ Uma mensagem só sua ♡</span>
+    <h2 class="titulo">Preparei uma cartinha...</h2>
+    <p class="subtitulo">
+      Tem algumas palavras que eu queria deixar guardadinhas
+      aqui para você. Clique no envelope para abrir.
+    </p>
+
+    <div class="envelope" id="envelope" onclick="openLetter()">
+      <div class="envelope-base"></div>
+      <div class="papel"></div>
+      <div class="envelope-tampa"></div>
+      <div class="selo-carta">♡</div>
+    </div>
+
+    <p id="instrucaoCarta" style="font-size:13px;color:#aa8db9">
+      Toque no envelope para descobrir sua surpresa ♡
+    </p>
+
+    <article class="carta-texto" id="cartaTexto">
+      <h3>Para você, Victória! ♡</h3>
+
+    
+<p>
+  Minha querida Victória,
+</p>
+
+<p>
+  Hoje é o seu dia, e eu não poderia deixar essa data
+  passar sem tentar encontrar uma maneira especial de
+  demonstrar o quanto desejo coisas lindas para você.
+  Por isso, resolvi preparar esse pequeno cantinho,
+  com fotografias, brincadeiras e palavras que espero
+  que façam você sorrir.
+</p>
+
+<p>
+  Quero que você saiba o quanto é especial e o quanto
+  merece viver coisas bonitas. Que esse novo ciclo venha
+  cheio de oportunidades, conquistas, tranquilidade,
+  saúde, amor e momentos que façam seu coração ficar
+  quentinho.
+</p>
+
+<p>
+  Eu não poderia deixar de falar da sua caminhada
+  acadêmica. Eu sei que foram muitas etapas até chegar
+  aqui. Ver você concluindo seu TCC e se aproximando
+  ainda mais da realização desse sonho é motivo de
+  muita alegria. Que você nunca se esqueça da sua
+  capacidade, da sua dedicação e de tudo o que já
+  conseguiu conquistar.
+</p>
+
+<p>
+  Que a vida seja generosa com você. Que os dias difíceis
+  sejam passageiros, que as alegrias sejam abundantes
+  e que nunca faltem motivos para acreditar no futuro.
+  Que você encontre pessoas que celebrem suas vitórias,
+  respeitem seu coração e torçam sinceramente pela sua
+  felicidade.
+</p>
+
+<p>
+  Continue sendo essa menina cheia de potencial,
+  construindo sua história, realizando seus sonhos
+  e florescendo no seu próprio tempo. Você ainda tem
+  tantas coisas lindas para viver!
+</p>
+
+<p>
+  E eu espero que você saiba o quanto a sua amizade é
+  especial para mim. É muito bom ter alguém com quem
+  posso dividir tantos momentos, conversar sobre
+  absolutamente tudo, rir de coisas que provavelmente
+  ninguém mais entenderia e também encontrar acolhimento
+  quando as coisas não estão tão bonitas assim. Gosto
+  de saber que temos essa liberdade uma com a outra,
+  de poder ser nós mesmas, falar besteira, compartilhar
+  novidades, desabafar e comemorar cada pequena conquista.
+  Sua amizade é daquelas que a gente guarda com muito
+  carinho, porque vai muito além de simplesmente ter
+  alguém para conversar: é ter alguém cuja presença faz
+  diferença na vida da gente. E eu sou muito feliz por
+  ter você na minha.
+</p>
+
+<p>
+  E, obviamente, não poderia deixar de mencionar nosso
+  maravilhoso e perigosíssimo talento para gostar de
+  compras! KKKKKKKKK. Porque basta uma falar que viu
+  alguma coisinha bonita para a outra já estar
+  praticamente convencida de que também precisa daquilo.
+  Somos duas pessoas que conseguem transformar uma
+  simples olhadinha em uma verdadeira pesquisa de mercado,
+  análise de possibilidades e justificativa perfeitamente
+  elaborada para uma nova aquisição. 😂 Entre uma
+  indicação e outra, desejos de consumo, achadinhos e
+  aquelas coisas que juramos que não precisamos, mas
+  queremos muito, vamos criando mais uma coleção de
+  momentos nossos. Que nunca nos faltem dinheiro,
+  oportunidades e, principalmente, juízo... embora eu
+  não tenha muita esperança quanto à última parte. KKKKKKK.
+</p>
+
+<p>
+  Também amo essa nossa conexão com o baralho cigano e a
+  espiritualidade, nossas conversas, interpretações,
+  descobertas e todas as vezes em que um assunto acaba
+  levando a outros mil. É muito nosso conseguir sair de
+  uma conversa completamente cotidiana para uma
+  investigação espiritual, uma tiragem de cartas ou uma
+  reflexão sobre os sinais e os caminhos da vida. Acho
+  especialmente bonito acompanhar você descobrindo esse
+  universo, se aproximando cada vez mais do baralho cigano
+  e despertando coisas que talvez estivessem adormecidas
+  dentro de você. Fico feliz em saber que, de alguma forma,
+  fui quem te apresentou esse caminho e que hoje você
+  também está desenvolvendo sua própria conexão, sua
+  intuição e sua sensibilidade espiritual. Que você tenha
+  sempre sabedoria para compreender aquilo que se apresenta,
+  confiança para desenvolver seus dons e discernimento
+  para seguir aquilo que fizer sentido para o seu coração.
+  Que a espiritualidade esteja sempre ao seu lado,
+  abençoando seus passos, protegendo seus caminhos e
+  iluminando suas descobertas. Que a minha Cigana Madalena
+  e a sua Cigana Esmeralda possam, cada uma à sua maneira,
+  trazer bênçãos, luz, proteção e boas energias para sua
+  caminhada. Que a Cigana Esmeralda te acompanhe nessa
+  jornada de descobertas, fortaleça sua intuição e te ajude
+  a florescer cada vez mais nesse universo tão especial.
+  E que nunca nos faltem nossas conversas, nossas tiragens,
+  nossas trocas e essa conexão tão nossa. ♡
+</p>
+
+<p>
+  E, acima de tudo, quero que você nunca se esqueça de que
+  tem em mim alguém que torce genuinamente por você. Quero
+  estar presente nas suas conquistas, nas suas novas fases,
+  nos seus planos, nos seus sonhos e até nos dias em que
+  tudo o que você precisar for reclamar da vida ou mandar
+  um áudio de quinze minutos contando alguma coisa. Quero
+  continuar acompanhando seu crescimento, vendo você
+  conquistar seus espaços e se tornando cada vez mais a
+  mulher que deseja ser. Que a nossa amizade ainda renda
+  muitas histórias, viagens, risadas, conversas
+  intermináveis, comprinhas questionáveis, tiragens de
+  cartas e momentos que um dia vamos recordar com aquele
+  sorriso de quem sabe o quanto foi feliz. Tenho um carinho
+  enorme por você, Victória, e espero que a vida me permita
+  comemorar muitos e muitos aniversários ao seu lado. ♡
+</p>
+
+<p>
+  Feliz aniversário! Que seu novo ciclo seja tão bonito
+  quanto tudo aquilo que desejo para você.
+</p>
+
+<p>
+  Com muito carinho,
+</p>
+
+      <p class="assinatura">Rafa ♡</p>
+    </article>
+  </div>
+</section>
+
+<!-- SURPRESA FINAL -->
+<section id="aniversario">
+  <div class="conteudo festa">
+    <span class="etiqueta">✧ Chegou a hora do parabéns! ✧</span>
+    <h2 class="titulo">Faça um pedido, Victória!</h2>
+    <p class="subtitulo">
+      Feche os olhinhos, pense em tudo aquilo que deseja
+      realizar e prepare-se para um momento especial.
+    </p>
+
+    <div class="bolo-palco">
+      <div class="prato"></div>
+
+      <div class="andares">
+        <div class="andar andar-3">
+          <div class="cobertura"></div>
+          <span class="bolo-flor fl1">🌸</span>
+          <span class="bolo-flor fl2">🌷</span>
+        </div>
+
+        <div class="andar andar-2">
+          <div class="cobertura"></div>
+          <div class="bolinha">✧　♡　✧　♡　✧</div>
+        </div>
+
+        <div class="andar andar-1">
+          <div class="cobertura"></div>
+          <div class="bolinha">♡　✿　♡　✿　♡　✿</div>
+        </div>
+      </div>
+
+      <div class="topo-bolo"></div>
+
+      <div class="velas" id="velas">
+        <div class="vela"><div class="chama"></div></div>
+        <div class="vela"><div class="chama"></div></div>
+        <div class="vela"><div class="chama"></div></div>
+        <div class="vela"><div class="chama"></div></div>
+        <div class="vela"><div class="chama"></div></div>
+      </div>
+    </div>
+
+    <p class="bolo-legenda" id="legendaBolo">
+      ♡ As velinhas estão esperando por você!
+    </p>
+
+    <button class="botao" id="apagarVelas" onclick="apagarChamas()">
+      Apagar minhas velinhas! ✨
+    </button>
+
+    <div class="pedidos-area" id="pedidosArea">
+      <h3 style="font-family:'Playfair Display';font-size:25px;color:#916fae">
+        Agora faça seus pedidos... ♡
+      </h3>
+
+      <p style="font-size:13px;line-height:1.8;margin-top:10px">
+        Escreva aqui os desejos que você quer entregar ao universo.
+        Não tenha medo de sonhar grande!
+      </p>
+
+      <textarea id="pedidos" placeholder="Que neste novo ciclo eu consiga..."></textarea>
+
+      <button class="botao" onclick="enviarPedidos()">
+        Enviar meus desejos ♡
+      </button>
+    </div>
+
+    <div class="bencao" id="bencao">
+      <div style="font-size:42px;margin-bottom:15px">🕊️ ✨</div>
+      <h3>Que assim seja!</h3>
+      <p>
+        Que cada desejo escrito encontre seu caminho.
+        Que a vida abra portas, que os encontros sejam
+        especiais, que as oportunidades floresçam e que
+        você tenha coragem para viver tudo aquilo que
+        seu coração sonha.
+      </p>
+      <p style="margin-top:15px">
+        Que o universo abençoe seus caminhos, proteja seus passos
+        e ilumine cada novo capítulo da sua história.
+        Que não faltem saúde, amor, sabedoria e motivos
+        para sorrir.
+      </p>
+      <p style="font-family:'Allura';font-size:39px;color:#c48ebd;margin-top:20px">
+        Seus desejos merecem florescer, Victória! ♡
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CRÉDITOS -->
+<footer class="creditos">
+  <div style="font-size:27px;margin-bottom:12px">✿ ♡ ✧</div>
+  <p>Um presente feito especialmente para você.</p>
+  <div class="assinatura">Com carinho, Rafa.</div>
+  <p>
+    Cada detalhe foi pensado para celebrar sua vida,
+    suas conquistas e a pessoa linda que você é.
+  </p>
+  <p class="marca">
+    Concebido, desenvolvido e programado com muito carinho por Rafa
+  </p>
+  <p style="margin-top:12px">© Um pedacinho de carinho, feito para durar na memória.</p>
+</footer>
+
+<script>
+
+/* DECORAÇÕES FLUTUANTES */
+
+const decoracoes = document.getElementById('decoracoes');
+
+const elementos = [
+  '🌸','🌷','✿','❀','🦋','♡','✧','✨','🌼','❁','💗'
+];
+
+function criarDecoracao() {
+  const item = document.createElement('span');
+  item.className = 'floaty';
+  item.textContent = elementos[Math.floor(Math.random() * elementos.length)];
+  item.style.left = Math.random() * 100 + '%';
+  item.style.fontSize = (15 + Math.random() * 20) + 'px';
+  item.style.animationDuration = (9 + Math.random() * 10) + 's';
+  decoracoes.appendChild(item);
+
+  setTimeout(() => item.remove(), 20000);
+}
+
+setInterval(criarDecoracao, 900);
+
+/* FOTOGRAFIAS */
+
+function openPhoto(elemento) {
+  const img = elemento.querySelector('img');
+  document.getElementById('imagemGrande').src = img.src;
+  document.getElementById('fotoAmpliada').classList.add('ativa');
+}
+
+function closePhoto() {
+  document.getElementById('fotoAmpliada').classList.remove('ativa');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePhoto();
+});
+
+/* JOGO DA MEMÓRIA */
+
+const frutas = [
+  '🍓','🍇','🍊','🍉','🍍','🥝',
+  '🍒','🍑','🥭','🍐','🍋','🫐'
+];
+
+let cartas = [];
+let primeira = null;
+let segunda = null;
+let bloqueado = false;
+let movimentos = 0;
+let pares = 0;
+let inicioJogo = null;
+let relogio = null;
+let jogoFinalizado = false;
+
+function embaralhar(lista) {
+  return lista.sort(() => Math.random() - .5);
+}
+
+function novoJogo() {
+  clearInterval(relogio);
+
+  cartas = embaralhar([...frutas, ...frutas]);
+  primeira = null;
+  segunda = null;
+  bloqueado = false;
+  movimentos = 0;
+  pares = 0;
+  inicioJogo = null;
+  jogoFinalizado = false;
+
+  document.getElementById('movimentos').textContent = 0;
+  document.getElementById('pares').textContent = '0 / 12';
+  document.getElementById('tempo').textContent = '00:00';
+  document.getElementById('mensagemJogo').textContent = 'Encontre os 12 pares! ♡';
+
+  const grade = document.getElementById('gradeFrutas');
+  grade.innerHTML = '';
+
+  cartas.forEach((fruta, indice) => {
+    const botao = document.createElement('button');
+    botao.className = 'fruta';
+    botao.type = 'button';
+    botao.textContent = fruta;
+    botao.setAttribute('aria-label', 'Carta fechada');
+
+    botao.addEventListener('click', () => virarCarta(botao, indice));
+
+    grade.appendChild(botao);
+  });
+}
+
+function iniciarRelogio() {
+  if (relogio) return;
+
+  inicioJogo = Date.now();
+
+  relogio = setInterval(() => {
+    const segundos = Math.floor((Date.now() - inicioJogo) / 1000);
+    const min = String(Math.floor(segundos / 60)).padStart(2,'0');
+    const seg = String(segundos % 60).padStart(2,'0');
+
+    document.getElementById('tempo').textContent = `${min}:${seg}`;
+  }, 1000);
+}
+
+function virarCarta(botao, indice) {
+  if (bloqueado || jogoFinalizado) return;
+  if (botao.classList.contains('revelada') ||
+      botao.classList.contains('acertada')) return;
+
+  iniciarRelogio();
+
+  botao.classList.add('revelada');
+  botao.setAttribute('aria-label', cartas[indice]);
+
+  if (!primeira) {
+    primeira = {botao, indice};
+    return;
+  }
+
+  segunda = {botao, indice};
+  movimentos++;
+
+  document.getElementById('movimentos').textContent = movimentos;
+
+  if (cartas[primeira.indice] === cartas[segunda.indice]) {
+    primeira.botao.classList.add('acertada');
+    segunda.botao.classList.add('acertada');
+
+    pares++;
+    document.getElementById('pares').textContent = pares + ' / 12';
+
+    primeira = null;
+    segunda = null;
+
+    document.getElementById('mensagemJogo').textContent =
+      'Muito bem! Mais um par encontrado! ✿';
+
+    if (pares === 12) {
+      jogoFinalizado = true;
+      clearInterval(relogio);
+      document.getElementById('mensagemJogo').textContent =
+        `Você conseguiu! 12 pares em ${movimentos} movimentos. Uma verdadeira especialista em frutas! ♡`;
+    }
+  } else {
+    bloqueado = true;
+
+    document.getElementById('mensagemJogo').textContent =
+      'Quase! Tente encontrar o próximo par. ♡';
+
+    setTimeout(() => {
+      primeira.botao.classList.remove('revelada');
+      segunda.botao.classList.remove('revelada');
+
+      primeira.botao.setAttribute('aria-label', 'Carta fechada');
+      segunda.botao.setAttribute('aria-label', 'Carta fechada');
+
+      primeira = null;
+      segunda = null;
+      bloqueado = false;
+    }, 850);
+  }
+}
+
+novoJogo();
+
+/* QUIZ DE NUTRIÇÃO */
+
+const perguntas = [
+  {
+    pergunta: 'Qual vitamina é conhecida por contribuir para a formação do colágeno?',
+    opcoes: ['Vitamina A','Vitamina C','Vitamina D','Vitamina B12'],
+    correta: 1,
+    explicacao: 'Isso mesmo! A vitamina C participa da síntese de colágeno.'
+  },
+  {
+    pergunta: 'Qual destes alimentos é uma fonte de gordura insaturada?',
+    opcoes: ['Abacate','Açúcar refinado','Refrigerante','Bala de goma'],
+    correta: 0,
+    explicacao: 'O abacate contém gorduras predominantemente monoinsaturadas.'
+  },
+  {
+    pergunta: 'Qual mineral é essencial para a formação da hemoglobina?',
+    opcoes: ['Cálcio','Potássio','Ferro','Iodo'],
+    correta: 2,
+    explicacao: 'O ferro é fundamental para a formação da hemoglobina.'
+  },
+  {
+    pergunta: 'Qual nutriente é a principal fonte de energia para o organismo?',
+    opcoes: ['Carboidratos','Vitaminas','Água','Minerais'],
+    correta: 0,
+    explicacao: 'Os carboidratos são uma importante fonte de energia.'
+  },
+  {
+    pergunta: 'Qual vitamina está relacionada à absorção intestinal de cálcio?',
+    opcoes: ['Vitamina E','Vitamina D','Vitamina K','Vitamina B1'],
+    correta: 1,
+    explicacao: 'A vitamina D auxilia na absorção de cálcio.'
+  },
+  {
+    pergunta: 'Qual destes alimentos é fonte de fibras alimentares?',
+    opcoes: ['Aveia','Óleo de soja','Manteiga','Gelatina comum'],
+    correta: 0,
+    explicacao: 'A aveia é rica em fibras, incluindo beta-glucana.'
+  }
+];
+
+let perguntaAtual = 0;
+let acertos = 0;
+let respondida = false;
+
+function carregarPergunta() {
+  respondida = false;
+
+  const q = perguntas[perguntaAtual];
+
+  document.getElementById('numeroPergunta').textContent =
+    `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+
+  document.getElementById('pontuacao').textContent =
+    `Acertos: ${acertos}`;
+
+  document.getElementById('barraProgresso').style.width =
+    (perguntaAtual / perguntas.length * 100) + '%';
+
+  document.getElementById('pergunta').textContent = q.pergunta;
+  document.getElementById('feedbackQuiz').textContent = '';
+  document.getElementById('proximo').disabled = true;
+
+  const area = document.getElementById('alternativas');
+  area.innerHTML = '';
+
+  q.opcoes.forEach((opcao, indice) => {
+    const botao = document.createElement('button');
+    botao.className = 'alternativa';
+    botao.textContent = opcao;
+    botao.onclick = () => responder(indice, botao);
+    area.appendChild(botao);
+  });
+}
+
+function responder(indice, botao) {
+  if (respondida) return;
+  respondida = true;
+
+  const q = perguntas[perguntaAtual];
+  const botoes = document.querySelectorAll('.alternativa');
+
+  botoes.forEach(b => b.disabled = true);
+
+  if (indice === q.correta) {
+    acertos++;
+    botao.classList.add('correta');
+    document.getElementById('feedbackQuiz').textContent =
+      '✓ ' + q.explicacao;
+  } else {
+    botao.classList.add('errada');
+    botoes[q.correta].classList.add('correta');
+    document.getElementById('feedbackQuiz').textContent =
+      '♡ ' + q.explicacao;
+  }
+
+  document.getElementById('pontuacao').textContent =
+    `Acertos: ${acertos}`;
+
+  document.getElementById('proximo').disabled = false;
+}
+
+function proximaPergunta() {
+  perguntaAtual++;
+
+  if (perguntaAtual < perguntas.length) {
+    carregarPergunta();
+  } else {
+    mostrarResultado();
+  }
+}
+
+function mostrarResultado() {
+  document.getElementById('quizConteudo').style.display = 'none';
+  document.getElementById('numeroPergunta').textContent = 'Desafio concluído!';
+  document.getElementById('barraProgresso').style.width = '100%';
+
+  const resultado = document.getElementById('resultadoQuiz');
+  resultado.style.display = 'block';
+
+  const mensagens = [
+    'Toda jornada de conhecimento começa com curiosidade. Continue aprendendo! ♡',
+    'Muito bem! Você está construindo uma linda trajetória na Nutrição!',
+    'Arrasou! A futura nutricionista está com tudo!',
+    'Excelente! Seu conhecimento merece ser celebrado!'
+  ];
+
+  document.getElementById('textoResultado').textContent =
+    `Você acertou ${acertos} de ${perguntas.length} perguntas. ` +
+    mensagens[acertos >= 5 ? 3 : acertos >= 3 ? 2 : acertos >= 1 ? 1 : 0];
+}
+
+function reiniciarQuiz() {
+  perguntaAtual = 0;
+  acertos = 0;
+
+  document.getElementById('quizConteudo').style.display = 'block';
+  document.getElementById('resultadoQuiz').style.display = 'none';
+
+  carregarPergunta();
+}
+
+carregarPergunta();
+
+/* CARTINHA E CORAÇÕES */
+
+let cartaAberta = false;
+
+function hearts() {
+  const simbolos = ['♡','♥','💕','💗','❀','✧'];
+
+  for (let i = 0; i < 35; i++) {
+    const coracao = document.createElement('span');
+    coracao.className = 'coracao-carta';
+    coracao.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
+
+    coracao.style.left = Math.random() * 100 + 'vw';
+    coracao.style.top = (45 + Math.random() * 35) + 'vh';
+    coracao.style.fontSize = (17 + Math.random() * 20) + 'px';
+    coracao.style.color = ['#e99dc9','#bb9ade','#e8a8d3','#d2b2eb'][Math.floor(Math.random() * 4)];
+
+    document.body.appendChild(coracao);
+
+    setTimeout(() => coracao.remove(), 2600);
+  }
+}
+
+function openLetter() {
+  if (cartaAberta) return;
+
+  cartaAberta = true;
+
+  document.getElementById('envelope').classList.add('aberto');
+
+  document.getElementById('instrucaoCarta').textContent =
+    'Uma mensagem escrita especialmente para você. ♡';
+
+  hearts();
+
+  setTimeout(() => {
+    document.getElementById('cartaTexto').classList.add('visivel');
+  }, 650);
+}
+
+/* VELAS E PEDIDOS */
+
+let velasApagadas = false;
+
+function apagarChamas() {
+  if (velasApagadas) return;
+
+  velasApagadas = true;
+
+  document.getElementById('velas').classList.add('apagadas');
+
+  document.getElementById('legendaBolo').textContent =
+    'Que todos os seus desejos encontrem um caminho! ♡';
+
+  document.getElementById('apagarVelas').style.display = 'none';
+
+  document.getElementById('pedidosArea').classList.add('visivel');
+
+  hearts();
+}
+
+function enviarPedidos() {
+  const texto = document.getElementById('pedidos').value.trim();
+
+  if (!texto) {
+    alert('Escreva pelo menos um desejo antes de enviar! ♡');
+    return;
+  }
+
+  document.getElementById('pedidosArea').classList.remove('visivel');
+  document.getElementById('bencao').classList.add('visivel');
+
+  hearts();
+
+  document.getElementById('bencao').scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+}
+
+</script>
+</body>
+</html>
